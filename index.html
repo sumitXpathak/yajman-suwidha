@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>श्री गया जी पिंड दान तीर्थ यात्रा | लखनऊ से</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Laila:wght@400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        /* --- CSS Variables for Easy Color Management --- */
+        :root {
+            --primary-color: #FF9933; /* Saffron */
+            --secondary-color: #D2691E; /* Chocolate */
+            --gold-accent: #C89B3F;
+            --text-dark: #2c2721;
+            --text-light: #fff;
+            --bg-main: #FFFBF5; /* Very light, warm off-white */
+            --bg-white: #ffffff;
+            --whatsapp-green: #25D366; /* NEW */
+        }
+
+        /* --- Basic & Preloader Style --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Poppins', 'Laila', sans-serif; line-height: 1.8; color: var(--text-dark); background-color: var(--bg-main); }
+        #preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg-main) url('https://i.gifer.com/origin/34/34338d26023e5515f6cc8969aa027b7e.gif') no-repeat center center; background-size: 100px; z-index: 1001; transition: opacity 0.7s ease-out, visibility 0.7s ease-out; }
+        #preloader.hidden { opacity: 0; visibility: hidden; }
+
+        /* --- Video Background --- */
+        .video-container { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: -100; }
+        #video-background { width: 100%; height: 100%; object-fit: cover; }
+        .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.3)); }
+
+        /* --- Header and Navigation --- */
+        header { background-color: transparent; padding: 15px 5%; position: fixed; width: 100%; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; transition: background-color 0.4s ease, box-shadow 0.4s ease; }
+        header.scrolled { background-color: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        header .logo { font-size: 1.6em; color: var(--text-light); font-weight: 700; font-family: 'Laila', serif; text-shadow: 1px 1px 3px rgba(0,0,0,0.5); }
+        header nav a { color: var(--text-light); text-decoration: none; margin-left: 25px; font-weight: 600; transition: color 0.3s; display: inline-block; position: relative; }
+        header nav a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 50%; transform: translateX(-50%); background-color: var(--primary-color); transition: width 0.3s ease-in-out; }
+        header nav a:hover { color: var(--primary-color); }
+        header nav a:hover::after { width: 100%; }
+        .menu-toggle { display: none; }
+
+        /* --- Hero Section --- */
+        .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; color: var(--text-light); padding: 0 5%; text-align: center; }
+        .hero-content { background-color: rgba(0, 0, 0, 0.3); backdrop-filter: blur(5px); padding: 40px; border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); }
+        .hero h1 { font-family: 'Laila', serif; font-size: 3.5em; margin-bottom: 20px; text-shadow: 2px 2px 8px rgba(0,0,0,0.7); animation: fadeInDown 1.5s ease-out forwards; }
+        .hero p { font-size: 1.2em; max-width: 650px; margin-bottom: 30px; animation: fadeInUp 1.5s ease-out 0.5s forwards; opacity: 0; }
+        .hero .departure-date { background-color: var(--gold-accent); color: var(--text-dark); padding: 8px 20px; border-radius: 20px; font-weight: 600; display: inline-block; margin-bottom: 40px; animation: fadeInUp 1.5s ease-out 0.8s forwards; opacity: 0; }
+        .cta-button { background: linear-gradient(45deg, var(--primary-color), #E68A2E); color: var(--text-light); padding: 15px 35px; text-decoration: none; font-size: 1.1em; font-weight: 700; border-radius: 8px; transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2); border: none; cursor: pointer; animation: fadeInUp 1.5s ease-out 1s forwards; opacity: 0; }
+        .cta-button:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(255, 153, 51, 0.5); }
+        
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* --- Content Sections General --- */
+        .content-section { padding: 120px 8% 80px; position: relative; background-color: var(--bg-main); margin-top: -1px; }
+        .content-section::before { content: ''; position: absolute; top: -1px; left: 0; width: 100%; height: 100px; background-color: var(--bg-main); clip-path: ellipse(80% 100% at 50% 100%); }
+        .content-section h2 { font-family: 'Laila', serif; font-size: 2.8em; margin-bottom: 60px; color: var(--secondary-color); text-align: center; position: relative; }
+        .content-section h2::after { content: ''; width: 80px; height: 3px; background: linear-gradient(90deg, transparent, var(--gold-accent), transparent); position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); border-radius: 2px; }
+        .centered-paragraph { max-width: 800px; margin: 0 auto; font-size: 1.1em; color: #555; text-align: center; }
+        
+        /* --- Itinerary Styling --- */
+        .itinerary-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; text-align: left; }
+        .day-card { padding: 30px; border-radius: 10px; background-color: var(--bg-white); box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05); border: 1px solid #eee; position: relative; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .day-card::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 5px; background: linear-gradient(90deg, var(--gold-accent), var(--primary-color)); transition: left 0.4s ease; }
+        .day-card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); }
+        .day-card:hover::before { left: 0; }
+        .day-card .card-icon { font-size: 2.5em; color: var(--gold-accent); margin-bottom: 15px; }
+        .day-card h3 { color: var(--secondary-color); margin-bottom: 15px; font-size: 1.5em; }
+
+        /* --- Price Table --- */
+        #pricing { background: linear-gradient(180deg, var(--bg-main), var(--bg-white)); }
+        #pricing::before { background-color: var(--bg-main); }
+        .price-table { width: 100%; max-width: 900px; margin: 40px auto; border-collapse: collapse; box-shadow: 0 5px 25px rgba(0,0,0,0.07); overflow: hidden; border-radius: 10px; }
+        .price-table th, .price-table td { padding: 16px; text-align: left; border-bottom: 1px solid #eee; }
+        .price-table th { background-color: var(--secondary-color); color: white; font-family: 'Laila', serif; }
+        .price-table tr { background-color: var(--bg-white); }
+        .price-table tr:nth-child(even) { background-color: #fdfdfd; }
+        .price-table td:first-child strong { color: var(--secondary-color); }
+
+        /* --- Form Styling --- */
+        #booking { background: var(--bg-white); }
+        #booking::before { background-color: var(--bg-white); }
+        .enquiry-form { max-width: 600px; margin: 0 auto; text-align: left; background: var(--bg-white); padding: 40px; border-radius: 10px; box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07); }
+        .booking-description { margin-bottom: 30px; text-align: center; color: #555; }
+        .enquiry-form label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--text-dark); }
+        .enquiry-form input, .enquiry-form textarea { width: 100%; padding: 14px; margin-bottom: 20px; border-radius: 5px; border: 1px solid #ccc; font-family: 'Poppins', sans-serif; transition: border-color 0.3s, box-shadow 0.3s; }
+        .enquiry-form input:focus, .enquiry-form textarea:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 8px rgba(255, 153, 51, 0.3); }
+        .enquiry-form button { width: 100%; background: linear-gradient(45deg, var(--secondary-color), #B85A19); color: white; padding: 15px; border: none; border-radius: 5px; font-size: 1.2em; font-weight: 700; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; }
+        .enquiry-form button:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(210, 105, 30, 0.4); }
+        
+        /* --- NEW: WhatsApp Button Styling --- */
+        .whatsapp-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            background-color: var(--whatsapp-green);
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 15px; /* Add some space above */
+            text-decoration: none; /* In case we use an <a> tag */
+        }
+        .whatsapp-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+        .whatsapp-button i {
+            font-size: 1.4em; /* Make icon a bit bigger */
+        }
+        /* --- End of NEW CSS --- */
+
+
+        /* --- Footer --- */
+        footer { background-color: #24201c; color: #ccc; text-align: center; padding: 40px 20px; }
+        .footer-contact { display: flex; justify-content: center; align-items: center; gap: 25px; margin-bottom: 20px; flex-wrap: wrap; }
+        .footer-contact a { color: #ccc; text-decoration: none; transition: color 0.3s; display: flex; align-items: center; gap: 8px; }
+        .footer-contact a:hover { color: var(--primary-color); }
+        .footer-contact i { color: var(--gold-accent); }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2em; }
+            .hero-content { padding: 25px; }
+            .content-section h2 { font-size: 2.2em; }
+            .content-section { padding-top: 80px; }
+            .content-section::before { height: 60px; }
+            
+            .menu-toggle { display: flex; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1001; }
+            .menu-toggle .bar { width: 28px; height: 3px; background-color: var(--text-light); border-radius: 3px; transition: all 0.3s ease-in-out; }
+            header nav { display: none; flex-direction: column; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background-color: rgba(40, 40, 40, 0.98); backdrop-filter: blur(8px); clip-path: circle(0% at 90% 10%); transition: clip-path 0.5s ease-in-out; justify-content: center; align-items: center; gap: 30px; }
+            header nav.active { display: flex; clip-path: circle(150% at 90% 10%); }
+            header nav a { font-size: 1.5em; }
+            .menu-toggle.active .bar:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+            .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
+            .menu-toggle.active .bar:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
+
+            .price-table { display: block; width: 100%; }
+            .price-table thead { display: none; }
+            .price-table tbody, .price-table tr, .price-table td { display: block; width: 100%; }
+            .price-table tr { margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; }
+            .price-table td { text-align: right; position: relative; padding: 12px 15px 12px 50%; border: none; }
+            .price-table td::before { content: attr(data-label); position: absolute; left: 15px; width: calc(50% - 30px); text-align: left; font-weight: bold; color: var(--secondary-color); }
+        }
+    </style>
+</head>
+<body>
+    <div id="preloader"></div>
+
+    <div class="video-container">
+        <div class="overlay"></div>
+        <video playsinline autoplay muted loop id="video-background">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-devotees-praying-at-the-ganges-river-4820-large.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <header id="header">
+        <div class="logo">गया जी यात्रा</div>
+        <nav id="main-nav">
+            <a href="#details">यात्रा विवरण</a>
+            <a href="#importance">महत्व</a>
+            <a href="#pricing">मूल्य सूची</a>
+            <a href="#booking">बुकिंग करें</a>
+        </nav>
+        <div class="menu-toggle" id="menu-toggle">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1> पितृपक्ष मेला महासंगम 2025 </h1>
+                <h2> त्रिदिवसीय श्री गया जी पिंड दान तीर्थ यात्रा  </h2>
+                <p>उत्तर प्रदेश से सीधे गया धाम तक की सम्पूर्ण व्यवस्था युक्त धार्मिक यात्रा। अपने पितरों का श्राद्ध और पिंड दान संपन्न कराएं और पुण्य-लाभ प्राप्त करें।</p>
+                <div class="departure-date">बुकिंग अब पितृ पक्ष (सितंबर 2025) के लिए खुली है!</div>
+                <a href="#booking" class="cta-button">अभी पूछताछ करें</a>
+            </div>
+        </section>
+
+        <section id="details" class="content-section">
+            <h2 data-aos="fade-up">त्रिदिवस पिंड दान विवरण</h2>
+            <div class="itinerary-container">
+                <div class="day-card" data-aos="fade-up" data-aos-delay="100">
+                    
+                    <h3>प्रथम दिवस कृत</h3>
+                    <p>तीर्थ गुरु आज्ञा, मुंडन संस्कार, फल्गु स्नान एवं तर्पण, ब्राह्मण वरण, विष्णुपद, सोलह वेदी, सीताकुंड पिंडदान व सीताकुंड सौभाग्य पिटारी दान।</p>
+                </div>
+                <div class="day-card" data-aos="fade-up" data-aos-delay="200">
+                
+                    <h3>द्वितीय दिवस कृत</h3>
+                    <p>प्रेतशिला, ब्रह्मकुण्ड, रामशिला, रामकुंड ,कागबली व बोधगया पिंडदान एवं स्वर्णदान।</p>
+                </div>
+                <div class="day-card" data-aos="fade-up" data-aos-delay="300">
+            
+                    <h3>तृतीय दिवस कृत</h3>
+                    <p>वैतरणी तर्पण व गौदान, अक्षयवट पिंडदान, पितृ विसर्जन, मा मंगला गौरी दर्शन, व ब्राह्मण दक्षिण, गया जी प्रसाद प्राप्ति व विष्णुचरण प्राप्ति व विदाई।</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="importance" class="content-section">
+            <h2 data-aos="fade-up">गया में पिंड दान का महत्व</h2>
+            <p class="centered-paragraph" data-aos="fade-up" data-aos-delay="100">
+                शास्त्रों के अनुसार, गया जी को "ज्ञान एवं मोक्ष की भूमि" कहा जाता है। यहां की मूल नदी को फल्गु के नाम से जाना जाता है जिसे अंतर्शलीला भी कहा जाता है। इस नदी के तट पर ही धर्मशिला नमक पर्वत है जिसके ऊपर भगवान विष्णु के पद चिन्ह विराजमान हैं। यहां जो भी श्रद्धालुगण पिंड दान करते उनके पित्रों को सद्गति व मोक्ष प्राप्त होती है तथा पिंडदान कर्ता भी पुण्य के भागी बनते हैं। यह पिंड दान नकी सिर्फ पितृ को मोक्ष के द्वार को लेकर जाता है बल्कि जो पिंडदान करते हैं वे पितृऋण से भी मुक्त हो जाते हैं।          </p>
+        </section>
+
+        <section id="pricing" class="content-section">
+            <h2 data-aos="fade-up">पैकेज मूल्य सूची</h2>
+            <div data-aos="zoom-in">
+                <table class="price-table">
+                    <thead>
+                        <tr><th>यात्री का प्रकार</th><th>पैकेज मूल्य (प्रति व्यक्ति)</th><th>विवरण</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td data-label="यात्री का प्रकार"><strong>मुख्य यात्री (पिंड दान सहित)</strong></td><td data-label="मूल्य"><strong>₹21,101/-</strong></td><td data-label="विवरण">यात्रा, भोजन, रहना और पिंड दान सामग्री व योग्य ब्राह्मण शामिल है।</td></tr>
+                        <tr><td data-label="यात्री का प्रकार"><strong>सह-यात्री (बिना पिंड दान)</strong></td><td data-label="मूल्य"><strong>₹5000/-</strong></td><td data-label="विवरण">पिंड दान को छोड़कर बाकी सभी सुविधाएँ शामिल हैं।</td></tr>
+    
+                        <tr><td data-label="यात्री का प्रकार"><strong>बच्चे (5 वर्ष से कम)</strong></td><td data-label="मूल्य"><strong>निःशुल्क / सीट शुल्क</strong></td><td data-label="विवरण">यदि बस में अलग सीट नहीं लेते हैं तो निःशुल्क।</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="booking" class="content-section">
+            <h2 data-aos="fade-up">यात्रा के लिए पूछताछ या बुकिंग करें</h2>
+            <p class="booking-description" data-aos="fade-up" data-aos-delay="50">नीचे दिया गया फॉर्म भरें और हमें भेजें, या सीधे व्हाट्सएप पर चैट करें।</p>
+            
+            <form id="enquiry-form" class="enquiry-form" action="https://formspree.io/f/YOUR_FORM_ENDPOINT_HERE" method="POST" data-aos="fade-up" data-aos-delay="100">
+                <label for="name">आपका पूरा नाम:</label><input type="text" id="name" name="नाम" required>
+                <label for="address">आपका पता:</label><input type="text" id="address" name="पता" required>
+                <label for="phone">मोबाइल नंबर:</label><input type="tel" id="phone" name="मोबाइल_नंबर" required>
+                <label for="travelers">यात्रियों की कुल संख्या:</label><input type="number" id="travelers" name="यात्रियों_की_संख्या" min="1" required>
+                <label for="message">आपका सवाल (यदि कोई हो):</label><textarea id="message" name="सवाल" rows="4"></textarea>
+                
+                <button type="submit">जानकारी भेजें</button>
+
+                <button type="button" id="whatsapp-btn" class="whatsapp-button">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    WhatsApp पर चैट करें
+                </button>
+                </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-contact">
+            <a href="tel:+918210608727"><i class="fa-solid fa-phone"></i> +918210608727</a>
+            <a href="mailto:contact@yourdomain.com"><i class="fa-solid fa-envelope"></i> contact@yourdomain.com</a>
+        </div>
+        <p>© 2025 श्री गया जी यात्रा | सर्वाधिकार सुरक्षित।</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    
+    <script>
+        // --- Initialize AOS ---
+        AOS.init({ duration: 800, once: true, offset: 50 });
+
+        // --- Preloader Script ---
+        window.addEventListener('load', () => { 
+            document.getElementById('preloader').classList.add('hidden'); 
+        });
+
+        // --- Header Scroll Effect ---
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => { 
+            window.scrollY > 50 ? header.classList.add('scrolled') : header.classList.remove('scrolled'); 
+        });
+
+        // --- Hamburger Menu Script ---
+        const menuToggle = document.getElementById('menu-toggle');
+        const mainNav = document.getElementById('main-nav');
+        const navLinks = mainNav.querySelectorAll('a'); 
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            mainNav.classList.toggle('active');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (mainNav.classList.contains('active')) {
+                    menuToggle.classList.remove('active');
+                    mainNav.classList.remove('active');
+                }
+            });
+        });
+
+        /* --- NEW: WhatsApp Redirect Logic --- */
+        document.getElementById('whatsapp-btn').addEventListener('click', function() {
+            // 1. Set your WhatsApp number (international format, no '+' or spaces)
+            const whatsappNumber = '918210608727';
+
+            // 2. Get values from the form
+            const name = document.getElementById('name').value;
+            const address = document.getElementById('address').value;
+            const phone = document.getElementById('phone').value;
+            const travelers = document.getElementById('travelers').value;
+            const customMessage = document.getElementById('message').value;
+
+            // 3. Create the message
+            let message = `नमस्ते! मैं श्री गया जी यात्रा पैकेज के बारे में जानकारी चाहता/चाहती हूँ।\n\n`;
+            message += `*नाम:* ${name || 'N/A'}\n`;
+            message += `*पता:* ${address || 'N/A'}\n`;
+            message += `*मोबाइल नंबर:* ${phone || 'N/A'}\n`;
+            message += `*यात्रियों की संख्या:* ${travelers || 'N/A'}\n`;
+
+            if (customMessage) {
+                message += `*मेरा सवाल:* ${customMessage}\n`;
+            }
+
+            // 4. Encode the message for the URL
+            const encodedMessage = encodeURIComponent(message);
+
+            // 5. Create the final WhatsApp URL
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+            // 6. Open WhatsApp in a new tab
+            window.open(whatsappURL, '_blank');
+        });
+        /* --- End of NEW --- */
+    </script>
+</body>
+</html>
